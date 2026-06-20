@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.5;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    margin-right: 16px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+}
+
+input,
+textarea,
+button {
+    padding: 8px;
+    font: inherit;
+}
+
+textarea {
+    min-height: 100px;
+}
