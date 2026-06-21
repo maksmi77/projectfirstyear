@@ -12,7 +12,7 @@
     .page { display: flex; flex-direction: column; width: 100%; min-height: 100vh; position: relative; }
 
     /* HEADER */
-    .header { position: fixed; top: 10px; left: 50%; transform: translateX(-50%); width: 1108px; display: flex; align-items: center; justify-content: space-between; padding: 10px 10px 10px 22px; background: rgba(181,212,255,0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; z-index: 100; }
+    .header { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 1108px; display: flex; align-items: center; justify-content: space-between; padding: 10px 10px 10px 22px; background: rgba(181,212,255,0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; z-index: 100; }
     .header__logo { font-weight: 700; font-size: 20px; color: #000; white-space: nowrap; }
     .header__nav { display: flex; align-items: center; gap: 15px; font-size: 20px; color: #000; }
     .header__nav a:hover { color: #003c93; }
@@ -23,33 +23,54 @@
     /* HERO */
     .hero { position: relative; width: 100%; height: 600px; overflow: hidden; }
     .hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-    .hero__overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.8); }
-    .hero__content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 70px 20px 40px; gap: 20px; }
-    .hero__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 47.78px; color: #003c93; max-width: 500px; line-height: normal; }
+    .hero__overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.5); }
+    .hero__content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 90px 20px 40px; gap: 20px; }
+    .hero__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 47.78px; color: #003c93; max-width: 900px; line-height: normal; }
     .hero__subtitle { font-size: 16px; color: #000b1c; max-width: 600px; line-height: 1.5; }
+    .hero__buttons { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center; width: 100%; }
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: #003c93; border-radius: 4px; font-size: 20px; color: #fff; white-space: nowrap; }
+    .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: rgba(255,255,255,0.5); backdrop-filter: blur(2px); border-radius: 4px; border: 1px solid #003c93; font-size: 20px; color: #003c93; white-space: nowrap; }
 
-    /* BENEFITS 1 */
-    .benefits-1 { position: relative; width: 100%; overflow: hidden; min-height: 515px; }
-    .benefits-1__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-    .benefits-1__overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.8); }
-    .benefits-1__inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 200px; padding: 40px 20px; min-height: 515px; }
-    .benefit-card { backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); background: rgba(255,255,255,0.6); border-radius: 8px; padding: 24px 32px; width: 250px; min-height: 231px; display: flex; flex-direction: column; gap: 10px; }
-    .benefit-card__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 33.18px; color: #003c93; line-height: normal; }
-    .benefit-card__list { font-size: 16px; color: #000b1c; line-height: 1.7; }
+    /* CUSTOM FLIGHT */
+    .custom-flight { position: relative; width: 100%; min-height: 627px; overflow: hidden; }
+    .custom-flight__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .custom-flight__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+    .custom-flight__inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 627px; text-align: center; padding: 40px 20px; gap: 20px; }
+    .custom-flight__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 33.18px; color: #b5d4ff; max-width: 800px; line-height: normal; }
+    .custom-flight__text { font-size: 16px; color: #fff; max-width: 600px; line-height: 1.5; }
 
-    /* VALUES */
-    .values { background: #fff; width: 100%; }
-    .values__inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 80px; padding: 100px 20px 60px; }
-    .values__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 39.81px; color: #003c93; text-align: center; line-height: normal; }
-    .values-grid { display: flex; flex-wrap: wrap; gap: 100px; align-items: flex-start; justify-content: center; max-width: 1000px; width: 100%; }
-    .value-card { display: flex; flex-direction: column; gap: 16px; width: 400px; }
-    .value-card__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 33.18px; color: #003c93; line-height: normal; }
-    .value-card__text { font-size: 16px; color: #000b1c; line-height: 1.5; }
-    .cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: #003c93; border-radius: 4px; font-size: 20px; color: #fff; white-space: nowrap; max-width: 300px; width: 100%; text-align: center; }
+    /* FEATURES */
+    .features { position: relative; width: 100%; overflow: hidden; }
+    .features__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .features__overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.2); }
+    .features__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 350px 350px; gap: 50px; justify-content: center; padding: 100px; }
+    .feature-card { backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); background: rgba(255,255,255,0.6); border-radius: 8px; padding: 24px 32px; display: flex; flex-direction: column; gap: 16px; }
+    .feature-card__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 33.18px; color: #003c93; line-height: normal; }
+    .feature-card__text { font-size: 16px; color: #000b1c; line-height: 1.5; }
+
+    /* SLOGAN */
+    .slogan { background: #003c93; width: 100%; }
+    .slogan__inner { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 20px; gap: 40px; text-align: center; }
+    .slogan__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 39.81px; color: #b5d4ff; max-width: 800px; line-height: normal; }
+    .slogan__text { font-size: 16px; color: #b5d4ff; max-width: 700px; line-height: 1.5; }
 
     /* FOOTER */
-    .footer { background: #fff; width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; padding: 40px 20px; font-size: 16px; color: #000b1c; text-align: center; }
+    .footer { background: #003c93; width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; padding: 40px 20px; font-size: 16px; color: #b5d4ff; text-align: center; }
 
+    /* OVERLAY */
+    .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; }
+    .overlay.is-open { display: block; }
+
+    /* MENU PANEL */
+    .menu { position: fixed; top: 0; right: 0; width: 280px; height: 100%; background: #fff; z-index: 300; display: flex; flex-direction: column; align-items: flex-end; padding: 14px 24px 30px; gap: 20px; transform: translateX(100%); transition: transform 0.3s ease; }
+    .menu.is-open { transform: translateX(0); }
+    .menu__close { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #fff; border: none; cursor: pointer; padding: 0; flex-shrink: 0; }
+    .menu__nav { display: flex; flex-direction: column; gap: 24px; font-size: 20px; color: #000; width: 100%; }
+    .menu__nav a { display: block; color: #000; }
+    .menu__nav a:hover { color: #003c93; }
+    .menu__cta { display: inline-flex; align-items: center; justify-content: center; padding: 10px; background: #003c93; border-radius: 4px; font-size: 24px; color: #fff; white-space: nowrap; align-self: flex-start; }
+
+    /* MOBILE < 1024px */
     @media (max-width: 1023px) {
       .header { width: auto; left: 10px; right: 10px; transform: none; height: 44px; padding: 10px; border-radius: 10px; }
       .header__nav, .header__btn { display: none; }
@@ -57,22 +78,50 @@
       .hero__content { align-items: flex-start; text-align: left; justify-content: flex-end; padding: 150px 20px 40px; }
       .hero__title { font-size: 36px; max-width: 100%; }
       .hero__subtitle { max-width: 100%; }
-      .benefits-1__inner { flex-direction: column; gap: 40px; align-items: stretch; min-height: auto; padding: 40px 20px; }
-      .benefit-card { width: 100%; min-height: auto; padding: 10px; }
-      .values__inner { gap: 40px; padding: 40px 20px; }
-      .values-grid { flex-direction: column; gap: 30px; }
-      .value-card { width: 100%; }
-      .cta-btn { max-width: 100%; }
+      .hero__buttons { justify-content: flex-start; gap: 13px; }
+      .btn-primary { flex: 1; }
+      .custom-flight { min-height: 400px; }
+      .custom-flight__inner { min-height: 400px; align-items: flex-start; text-align: left; justify-content: center; gap: 40px; }
+      .custom-flight__title, .custom-flight__text { max-width: 100%; }
+      .features__inner { grid-template-columns: 1fr; padding: 40px 20px; gap: 40px; }
+      .feature-card { padding: 10px; }
+      .slogan__inner { align-items: flex-start; text-align: left; padding: 40px 20px; gap: 40px; }
+      .slogan__title { font-size: 28px; }
       .footer { gap: 10px; }
     }
   </style>
 </head>
 <body>
+
+
+<!-- DARK OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- SLIDE-IN MENU -->
+<div class="menu" id="menu" aria-hidden="true">
+  <button class="menu__close" id="menuClose" aria-label="Закрыть меню">
+    <svg width="32" height="33" viewBox="0 0 33.4142 33.2345" fill="none">
+      <line x1="1.06066" y1="0.353553" x2="33.0607" y2="32.3536" stroke="black"/>
+      <line x1="0.353553" y1="32.8808" x2="32.3536" y2="0.880754" stroke="black"/>
+    </svg>
+  </button>
+  <nav class="menu__nav">
+    <a href="about.html">О сервисе</a>
+    <a href="services.html">Услуги</a>
+    <a href="route.html">Маршрут</a>
+    <a href="before-flight.html">До вылета</a>
+    <a href="in-air.html">В воздухе</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+  <a href="contacts.html" class="menu__cta">Оставить запрос</a>
+</div>
+
+  
 <div class="page">
+  
+  <div class="page">
   <header class="header">
-    <a href="index.html">
-      <span class="header__logo">Ciel Privé</span>
-    </a>
+    <span class="header__logo">Ciel Privé</span>
     <nav class="header__nav">
       <a href="about.html">О сервисе</a>
       <a href="services.html">Услуги</a>
@@ -82,9 +131,11 @@
       <a href="contacts.html">Контакты</a>
     </nav>
     <a href="contacts.html" class="header__btn">Оставить запрос</a>
-    <button class="header__burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    <button class="header__burger" id="burgerBtn" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
   </header>
-  
+    
   <section class="hero">
     <div class="hero__bg" style="background-image:url('src/imports/AboutMobile-1/fed77ffc6786739e3971a39614aefe46b6fae80f.png')"></div>
     <div class="hero__overlay"></div>
@@ -157,5 +208,34 @@
     <span>+7 (495) 123-45-67</span>
   </footer>
 </div>
+
+<script>
+  var burger  = document.getElementById('burgerBtn');
+  var menu    = document.getElementById('menu');
+  var overlay = document.getElementById('overlay');
+
+  function openMenu() {
+    menu.classList.add('is-open');
+    overlay.classList.add('is-open');
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  burger.addEventListener('click', openMenu);
+  document.getElementById('menuClose').addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>
+  
 </body>
 </html>
