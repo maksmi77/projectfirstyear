@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciel Privé — В воздухе</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=Inter:wght@400;700&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; font-size: 16px; background: #fff; }
+    a { text-decoration: none; color: inherit; }
+    .page { display: flex; flex-direction: column; width: 100%; min-height: 100vh; position: relative; }
+
+    /* HEADER */
+    .header { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 1108px; display: flex; align-items: center; justify-content: space-between; padding: 10px 10px 10px 22px; background: rgba(181,212,255,0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; z-index: 100; }
+    .header__logo { font-weight: 700; font-size: 20px; color: #000; white-space: nowrap; }
+    .header__nav { display: flex; align-items: center; gap: 15px; font-size: 20px; color: #000; }
+    .header__nav a:hover { color: #003c93; }
+    .header__btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; background: #003c93; border-radius: 2px; font-size: 24px; color: #fff; white-space: nowrap; }
+    .header__burger { display: none; flex-direction: column; justify-content: space-between; width: 32px; height: 18px; cursor: pointer; background: none; border: none; padding: 0; }
+    .header__burger span { display: block; width: 100%; height: 1px; background: #000; }
+
+    /* HERO */
+    .hero { position: relative; width: 100%; height: 600px; overflow: hidden; }
+    .hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .hero__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+    .hero__content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 70px 20px 40px; gap: 20px; }
+    .hero__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 47.78px; color: #b5d4ff; max-width: 600px; line-height: normal; }
+    .hero__subtitle { font-size: 16px; color: #fff; max-width: 600px; line-height: 1.5; }
+
+    /* IN-AIR SECTION */
+    .in-air { position: relative; width: 100%; overflow: hidden; }
+    .in-air__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .in-air__overlay { position: absolute; inset: 0; background: rgba(73,73,73,0.7); }
+    .in-air__inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; padding: 40px 10px; text-align: center; }
+    .in-air-card { display: flex; flex-direction: column; gap: 16px; max-width: 600px; width: 100%; }
+    .in-air-card__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 33.18px; color: #b5d4ff; line-height: normal; }
+    .in-air-card__text { font-size: 16px; color: #fff; line-height: 1.5; }
+
+    /* FOOTER */
+    .footer { background: #6d6d6d; width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; padding: 40px 20px; font-size: 16px; color: #fff; text-align: center; }
+
+    @media (max-width: 1023px) {
+      .header { width: auto; left: 10px; right: 10px; transform: none; height: 44px; padding: 10px; border-radius: 10px; }
+      .header__nav, .header__btn { display: none; }
+      .header__burger { display: flex; }
+      .hero__content { align-items: flex-start; text-align: left; justify-content: flex-end; padding: 150px 20px 40px; }
+      .hero__title { font-size: 36px; max-width: 100%; }
+      .hero__subtitle { max-width: 100%; }
+      .in-air__inner { align-items: flex-start; text-align: left; padding: 40px 20px; }
+      .in-air-card { max-width: 100%; }
+      .footer { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <span class="header__logo">Ciel Privé</span>
+    <nav class="header__nav">
+      <a href="about.html">О сервисе</a>
+      <a href="services.html">Услуги</a>
+      <a href="route.html">Маршрут</a>
+      <a href="before-flight.html">До вылета</a>
+      <a href="in-air.html">В воздухе</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <a href="contacts.html" class="header__btn">Оставить запрос</a>
+    <button class="header__burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </header>
+
+  <section class="hero">
+    <div class="hero__bg" style="background-image:url('../src/imports/InAirDesktop/479937d20623c0771007bac858c99f764fc8b6d1.png')"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">В воздухе</h1>
+      <p class="hero__subtitle">Салон частного самолёта — это личное пространство в пути: здесь можно работать, отдыхать, говорить без посторонних и сохранять привычный ритм.</p>
+    </div>
+  </section>
+
+  <section class="in-air">
+    <div class="in-air__bg" style="background-image:url('../src/imports/InAirDesktop/b2c236d97380b02cfbd48baa33dec08b2b3ceefb.png')"></div>
+    <div class="in-air__overlay"></div>
+    <div class="in-air__inner">
+      <div class="in-air-card">
+        <p class="in-air-card__title">Для деловой поездки</p>
+        <p class="in-air-card__text">Возможность не терять рабочее время.</p>
+      </div>
+      <div class="in-air-card">
+        <p class="in-air-card__title">Для семейного перелёта</p>
+        <p class="in-air-card__text">Спокойная дорога без лишнего стресса.</p>
+      </div>
+      <div class="in-air-card">
+        <p class="in-air-card__title">Для личного путешествия</p>
+        <p class="in-air-card__text">Ощущение приватности и свободы.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>©copyright2026</span>
+    <a href="#">договор</a>
+    <a href="contacts.html">контакты</a>
+    <span>+7 (495) 123-45-67</span>
+  </footer>
+</div>
+</body>
+</html>
