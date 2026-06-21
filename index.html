@@ -81,11 +81,34 @@
   </style>
 </head>
 <body>
+
+
+<!-- DARK OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- SLIDE-IN MENU -->
+<div class="menu" id="menu" aria-hidden="true">
+  <button class="menu__close" id="menuClose" aria-label="Закрыть меню">
+    <svg width="32" height="33" viewBox="0 0 33.4142 33.2345" fill="none">
+      <line x1="1.06066" y1="0.353553" x2="33.0607" y2="32.3536" stroke="black"/>
+      <line x1="0.353553" y1="32.8808" x2="32.3536" y2="0.880754" stroke="black"/>
+    </svg>
+  </button>
+  <nav class="menu__nav">
+    <a href="about.html">О сервисе</a>
+    <a href="services.html">Услуги</a>
+    <a href="route.html">Маршрут</a>
+    <a href="before-flight.html">До вылета</a>
+    <a href="in-air.html">В воздухе</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+  <a href="contacts.html" class="menu__cta">Оставить запрос</a>
+</div>
+
+  
 <div class="page">
   <header class="header">
-    <a href="index.html">
-      <span class="header__logo">Ciel Privé</span>
-    </a>
+    <span class="header__logo">Ciel Privé</span>
     <nav class="header__nav">
       <a href="about.html">О сервисе</a>
       <a href="services.html">Услуги</a>
@@ -95,7 +118,9 @@
       <a href="contacts.html">Контакты</a>
     </nav>
     <a href="contacts.html" class="header__btn">Оставить запрос</a>
-    <button class="header__burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    <button class="header__burger" id="burgerBtn" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
   <section class="hero">
@@ -157,5 +182,34 @@
     <span>+7 (495) 123-45-67</span>
   </footer>
 </div>
+
+<script>
+  var burger = document.getElementById('burgerBtn');
+  var menu   = document.getElementById('menu');
+  var overlay = document.getElementById('overlay');
+
+  function openMenu() {
+    menu.classList.add('is-open');
+    overlay.classList.add('is-open');
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  burger.addEventListener('click', openMenu);
+  document.getElementById('menuClose').addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>
+  
 </body>
 </html>
