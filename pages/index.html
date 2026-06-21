@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciel Privé — Главная</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=Inter:wght@400;700&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; font-size: 16px; background: #fff; color: #000b1c; }
+    a { text-decoration: none; color: inherit; }
+    .page { display: flex; flex-direction: column; width: 100%; min-height: 100vh; position: relative; }
+
+    /* HEADER */
+    .header { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 1108px; display: flex; align-items: center; justify-content: space-between; padding: 10px 10px 10px 22px; background: rgba(181,212,255,0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; z-index: 100; }
+    .header__logo { font-weight: 700; font-size: 20px; color: #000; white-space: nowrap; }
+    .header__nav { display: flex; align-items: center; gap: 15px; font-size: 20px; color: #000; }
+    .header__nav a:hover { color: #003c93; }
+    .header__btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; background: #003c93; border-radius: 2px; font-size: 24px; color: #fff; white-space: nowrap; }
+    .header__burger { display: none; flex-direction: column; justify-content: space-between; width: 32px; height: 18px; cursor: pointer; background: none; border: none; padding: 0; }
+    .header__burger span { display: block; width: 100%; height: 1px; background: #000; }
+
+    /* HERO */
+    .hero { position: relative; width: 100%; height: 600px; overflow: hidden; }
+    .hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .hero__overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.5); }
+    .hero__content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 90px 20px 40px; gap: 20px; }
+    .hero__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 47.78px; color: #003c93; max-width: 900px; line-height: normal; }
+    .hero__subtitle { font-size: 16px; color: #000b1c; max-width: 600px; line-height: 1.5; }
+    .hero__buttons { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center; width: 100%; }
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: #003c93; border-radius: 4px; font-size: 20px; color: #fff; white-space: nowrap; }
+    .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: rgba(255,255,255,0.5); backdrop-filter: blur(2px); border-radius: 4px; border: 1px solid #003c93; font-size: 20px; color: #003c93; white-space: nowrap; }
+
+    /* CUSTOM FLIGHT */
+    .custom-flight { position: relative; width: 100%; min-height: 627px; overflow: hidden; }
+    .custom-flight__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .custom-flight__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+    .custom-flight__inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 627px; text-align: center; padding: 40px 20px; gap: 20px; }
+    .custom-flight__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 33.18px; color: #b5d4ff; max-width: 800px; line-height: normal; }
+    .custom-flight__text { font-size: 16px; color: #fff; max-width: 600px; line-height: 1.5; }
+
+    /* FEATURES */
+    .features { position: relative; width: 100%; overflow: hidden; }
+    .features__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .features__overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.2); }
+    .features__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 350px 350px; gap: 50px; justify-content: center; padding: 100px; }
+    .feature-card { backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); background: rgba(255,255,255,0.6); border-radius: 8px; padding: 24px 32px; display: flex; flex-direction: column; gap: 16px; }
+    .feature-card__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 33.18px; color: #003c93; line-height: normal; }
+    .feature-card__text { font-size: 16px; color: #000b1c; line-height: 1.5; }
+
+    /* SLOGAN */
+    .slogan { background: #003c93; width: 100%; }
+    .slogan__inner { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 20px; gap: 40px; text-align: center; }
+    .slogan__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 39.81px; color: #b5d4ff; max-width: 800px; line-height: normal; }
+    .slogan__text { font-size: 16px; color: #b5d4ff; max-width: 700px; line-height: 1.5; }
+
+    /* FOOTER */
+    .footer { background: #003c93; width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; padding: 40px 20px; font-size: 16px; color: #b5d4ff; text-align: center; }
+
+    /* DESKTOP >= 1024px — no changes needed, base is desktop */
+
+    /* MOBILE < 1024px */
+    @media (max-width: 1023px) {
+      .header { width: auto; left: 10px; right: 10px; transform: none; height: 44px; padding: 10px; border-radius: 10px; }
+      .header__nav, .header__btn { display: none; }
+      .header__burger { display: flex; }
+      .hero__content { align-items: flex-start; text-align: left; justify-content: flex-end; padding: 150px 20px 40px; }
+      .hero__title { font-size: 36px; max-width: 100%; }
+      .hero__subtitle { max-width: 100%; }
+      .hero__buttons { justify-content: flex-start; gap: 13px; }
+      .btn-primary { flex: 1; }
+      .custom-flight { min-height: 400px; }
+      .custom-flight__inner { min-height: 400px; align-items: flex-start; text-align: left; justify-content: center; gap: 40px; }
+      .custom-flight__title, .custom-flight__text { max-width: 100%; }
+      .features__inner { grid-template-columns: 1fr; padding: 40px 20px; gap: 40px; }
+      .feature-card { padding: 10px; }
+      .slogan__inner { align-items: flex-start; text-align: left; padding: 40px 20px; gap: 40px; }
+      .slogan__title { font-size: 28px; }
+      .footer { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <span class="header__logo">Ciel Privé</span>
+    <nav class="header__nav">
+      <a href="about.html">О сервисе</a>
+      <a href="services.html">Услуги</a>
+      <a href="route.html">Маршрут</a>
+      <a href="before-flight.html">До вылета</a>
+      <a href="#">В воздухе</a>
+      <a href="#">Контакты</a>
+    </nav>
+    <a href="#" class="header__btn">Оставить запрос</a>
+    <button class="header__burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </header>
+
+  <section class="hero">
+    <div class="hero__bg" style="background-image:url('../src/imports/MainPageDesktop/b2aec4e792fe38640ae01daf3cb9cf9c8512e2b7.png')"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">Частное небо для вашего маршрута</h1>
+      <p class="hero__subtitle">Ciel Privé организует частные перелёты и сопровождение поездок для тех, кому важно свободно распоряжаться своим временем.</p>
+      <div class="hero__buttons">
+        <a href="#" class="btn-primary">Оставить запрос</a>
+        <a href="about.html" class="btn-secondary">О сервисе</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="custom-flight">
+    <div class="custom-flight__bg" style="background-image:url('../src/imports/MainPageDesktop/f2930d11da0425763cd604878cfdaa173559ed18.png')"></div>
+    <div class="custom-flight__overlay"></div>
+    <div class="custom-flight__inner">
+      <p class="custom-flight__title">Перелёт, собранный под ваш ритм</p>
+      <p class="custom-flight__text">Ciel Privé помогает организовать частный перелёт под конкретную задачу: деловую встречу, семейную поездку, закрытое событие или срочный маршрут. Команда подбирает борт, согласует время, трансфер, VIP-терминал и дополнительные детали.</p>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="features__bg" style="background-image:url('../src/imports/MainPageDesktop/a344c81333f4cdd278f1d5c2b48af488134286b4.png')"></div>
+    <div class="features__overlay"></div>
+    <div class="features__inner">
+      <div class="feature-card">
+        <p class="feature-card__title">Индивидуальный маршрут</p>
+        <p class="feature-card__text">Перелёт собирается под задачу клиента, а не под стандартное расписание.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-card__title">Один контакт</p>
+        <p class="feature-card__text">Клиент не связывается с разными подрядчиками и не контролирует каждый этап самостоятельно.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-card__title">Приватность</p>
+        <p class="feature-card__text">Поездка проходит без лишнего внимания и постороннего участия.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-card__title">Сопровождение</p>
+        <p class="feature-card__text">Команда остаётся на связи до, во время и после перелёта.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slogan">
+    <div class="slogan__inner">
+      <p class="slogan__title">Роскошь — это когда не нужно думать о лишнем</p>
+      <p class="slogan__text">Ciel Privé собирает поездку целиком: от первого запроса до прибытия.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>©copyright2026</span>
+    <a href="#">договор</a>
+    <a href="#">контакты</a>
+    <span>+7 (495) 123-45-67</span>
+  </footer>
+</div>
+</body>
+</html>
