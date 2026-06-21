@@ -1,26 +1,159 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О компании</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciel Privé — О сервисе</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=Inter:wght@400;700&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; font-size: 16px; background: #fff; color: #000b1c; }
+    a { text-decoration: none; color: inherit; }
+    .page { display: flex; flex-direction: column; width: 100%; min-height: 100vh; position: relative; }
+
+    /* HEADER */
+    .header { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 1108px; display: flex; align-items: center; justify-content: space-between; padding: 10px 10px 10px 22px; background: rgba(181,212,255,0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; z-index: 100; }
+    .header__logo { font-weight: 700; font-size: 20px; color: #000; white-space: nowrap; }
+    .header__nav { display: flex; align-items: center; gap: 15px; font-size: 20px; color: #000; }
+    .header__nav a:hover { color: #003c93; }
+    .header__btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; background: #003c93; border-radius: 2px; font-size: 24px; color: #fff; white-space: nowrap; }
+    .header__burger { display: none; flex-direction: column; justify-content: space-between; width: 32px; height: 18px; cursor: pointer; background: none; border: none; padding: 0; }
+    .header__burger span { display: block; width: 100%; height: 1px; background: #000; }
+
+    /* HERO */
+    .hero { position: relative; width: 100%; height: 600px; overflow: hidden; }
+    .hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .hero__overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.8); }
+    .hero__content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 70px 20px 40px; gap: 20px; }
+    .hero__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 47.78px; color: #003c93; max-width: 500px; line-height: normal; }
+    .hero__subtitle { font-size: 16px; color: #000b1c; max-width: 600px; line-height: 1.5; }
+
+    /* BENEFITS 1 */
+    .benefits-1 { position: relative; width: 100%; overflow: hidden; min-height: 515px; }
+    .benefits-1__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .benefits-1__overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.8); }
+    .benefits-1__inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 200px; padding: 40px 20px; min-height: 515px; }
+    .benefit-card { backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); background: rgba(255,255,255,0.6); border-radius: 8px; padding: 24px 32px; width: 250px; min-height: 231px; display: flex; flex-direction: column; gap: 10px; }
+    .benefit-card__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 33.18px; color: #003c93; line-height: normal; }
+    .benefit-card__list { font-size: 16px; color: #000b1c; line-height: 1.7; }
+
+    /* VALUES */
+    .values { background: #fff; width: 100%; }
+    .values__inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 80px; padding: 100px 20px 60px; }
+    .values__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 39.81px; color: #003c93; text-align: center; line-height: normal; }
+    .values-grid { display: flex; flex-wrap: wrap; gap: 100px; align-items: flex-start; justify-content: center; max-width: 1000px; width: 100%; }
+    .value-card { display: flex; flex-direction: column; gap: 16px; width: 400px; }
+    .value-card__title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 33.18px; color: #003c93; line-height: normal; }
+    .value-card__text { font-size: 16px; color: #000b1c; line-height: 1.5; }
+    .cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: #003c93; border-radius: 4px; font-size: 20px; color: #fff; white-space: nowrap; max-width: 300px; width: 100%; text-align: center; }
+
+    /* FOOTER */
+    .footer { background: #fff; width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; padding: 40px 20px; font-size: 16px; color: #000b1c; text-align: center; }
+
+    @media (max-width: 1023px) {
+      .header { width: auto; left: 10px; right: 10px; transform: none; height: 44px; padding: 10px; border-radius: 10px; }
+      .header__nav, .header__btn { display: none; }
+      .header__burger { display: flex; }
+      .hero__content { align-items: flex-start; text-align: left; justify-content: flex-end; padding: 150px 20px 40px; }
+      .hero__title { font-size: 36px; max-width: 100%; }
+      .hero__subtitle { max-width: 100%; }
+      .benefits-1__inner { flex-direction: column; gap: 40px; align-items: stretch; min-height: auto; padding: 40px 20px; }
+      .benefit-card { width: 100%; min-height: auto; padding: 10px; }
+      .values__inner { gap: 40px; padding: 40px 20px; }
+      .values-grid { flex-direction: column; gap: 30px; }
+      .value-card { width: 100%; }
+      .cta-btn { max-width: 100%; }
+      .footer { gap: 10px; }
+    }
+  </style>
 </head>
 <body>
-
-<header>
-    <h1>Тестовый сайт</h1>
-    <nav>
-        <a href="index.html">Главная</a>
-        <a href="about.html">О компании</a>
-        <a href="contacts.html">Контакты</a>
+<div class="page">
+  <header class="header">
+    <span class="header__logo">Ciel Privé</span>
+    <nav class="header__nav">
+      <a href="about.html">О сервисе</a>
+      <a href="services.html">Услуги</a>
+      <a href="route.html">Маршрут</a>
+      <a href="before-flight.html">До вылета</a>
+      <a href="#">В воздухе</a>
+      <a href="#">Контакты</a>
     </nav>
-</header>
+    <a href="#" class="header__btn">Оставить запрос</a>
+    <button class="header__burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </header>
 
-<main>
-    <h2>О компании</h2>
-    <p>Демонстрационная страница с кратким описанием.</p>
-</main>
+  <section class="hero">
+    <div class="hero__bg" style="background-image:url('../src/imports/AboutMobile-1/fed77ffc6786739e3971a39614aefe46b6fae80f.png')"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">Частное небо</h1>
+      <p class="hero__subtitle">Ciel Privé переводится с французского как «частное небо». Это идея сервиса, в котором перелёт становится личным пространством клиента.</p>
+    </div>
+  </section>
 
+  <section class="benefits-1">
+    <div class="benefits-1__bg" style="background-image:url('../src/imports/AboutMobile-1/0e5798615859830318ee230a04dd4e528bd7990c.png')"></div>
+    <div class="benefits-1__overlay"></div>
+    <div class="benefits-1__inner">
+      <div class="benefit-card">
+        <p class="benefit-card__title">Не про это</p>
+        <div class="benefit-card__list">
+          <p>Показная роскошь</p>
+          <p>Громкие обещания</p>
+          <p>Сложная коммуникация</p>
+          <p>Случайные подрядчики</p>
+          <p>Лишняя суета</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <p class="benefit-card__title">Про это</p>
+        <div class="benefit-card__list">
+          <p>Приватность</p>
+          <p>Точность</p>
+          <p>Личный маршрут</p>
+          <p>Один контакт</p>
+          <p>Спокойное сопровождение</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="values__inner">
+      <h2 class="values__title">Ценности</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <p class="value-card__title">Приватность</p>
+          <p class="value-card__text">Для клиента важна возможность перемещаться без лишнего внимания.</p>
+        </div>
+        <div class="value-card">
+          <p class="value-card__title">Точность</p>
+          <p class="value-card__text">Время вылета, готовность борта, документы и трансфер должны быть согласованы заранее.</p>
+        </div>
+        <div class="value-card">
+          <p class="value-card__title">Индивидуальный подход</p>
+          <p class="value-card__text">Каждая поездка требует своего решения: по маршруту, срочности, пассажирам и уровню комфорта.</p>
+        </div>
+        <div class="value-card">
+          <p class="value-card__title">Ответственность</p>
+          <p class="value-card__text">Клиент не должен разбираться, кто отвечает за каждую часть процесса.</p>
+        </div>
+        <div class="value-card">
+          <p class="value-card__title">Спокойный премиум</p>
+          <p class="value-card__text">Дорогим сервис делает не внешняя роскошь, а качество взаимодействия.</p>
+        </div>
+      </div>
+      <a href="services.html" class="cta-btn">Перейти к услугам</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>©copyright2026</span>
+    <a href="#">договор</a>
+    <a href="#">контакты</a>
+    <span>+7 (495) 123-45-67</span>
+  </footer>
+</div>
 </body>
 </html>
